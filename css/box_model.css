@@ -3,12 +3,41 @@ div {
 
 #first-div {
   background-color: #39cccc;
+  height: 200px;
+  width:200px;
+
+  padding: 50px;
+  border: 5px solid black
 }
 
 #second-div {
   background-color: #ff4136;
+  height: 200px;
+  width:200px;
+
+  padding: 50px;
+  border: 5px solid black;
+  box-sizing: border-box;
 }
 
+#third-div {
+  background-color: gold;
+  min-width: 200px;
+  font-size: 20px;
+  min-height: 10px ;
+  /*max-width: 800px ;*/
+}
+.image-1-container {
+  background-color: blue;
+  width: 100%;
+  height: 600px;
+}
+.image-2-container {
+  display: inline-block;
+  min-width: 200px;
+  height: 600px;
+  background: pink;
+}
 p {
   background-color: #7fdbff;
 }
