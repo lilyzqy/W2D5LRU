@@ -21,6 +21,8 @@ class Node
 end
 
 class LinkedList
+  include Enumerable
+
   def initialize
     @head = Node.new
     @tail = Node.new
@@ -56,6 +58,11 @@ class LinkedList
   end
 
   def include?(key)
+    location = @head
+    until location.key == key || location == @tail
+      location = location.next
+    end
+    location != @tail
   end
 
   def append(key, val)
@@ -75,13 +82,26 @@ class LinkedList
   end
 
   def remove(key)
+    location = @head
+    until location.key == key || location == @tail
+      location = location.next
+    end
+    location.remove if location != @tail
   end
+end
 
-  def each
+module Enumerable
+  def each(&prc)
+    location = @head.next
+    until location == @tail
+      prc.call(location)
+      location = location.next
+    end
+
   end
+end
 
   # uncomment when you have `each` working and `Enumerable` included
   # def to_s
   #   inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
   # end
-end
